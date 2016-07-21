@@ -1,0 +1,24 @@
+{
+  "name": "symatic-router",
+  "version": "0.0.1",
+  "description": "A simple yet extensive REST router module for Nodejs - useful for quick API development",
+  "main": "symatic-router.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SymaticSolutions/symatic-router.git"
+  },
+  "keywords": [
+    "router",
+    "api",
+    "rest"
+  ],
+  "author": "Symatic Solutions",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SymaticSolutions/symatic-router/issues"
+  },
+  "homepage": "https://github.com/SymaticSolutions/symatic-router#readme"
+}

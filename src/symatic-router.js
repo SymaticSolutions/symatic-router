@@ -13,16 +13,18 @@ var http = require('http'),
 
 module.exports = {
 
-    registeredGetURLs: {},
+    _port: 999,
 
-    registeredPostURLs:{},
+    _registeredGetURLs: {},
+
+    _registeredPostURLs:{},
 
     _APIVersion: 001,
 
     _APIFunction: '',
 
     config: function(conf){
-        this.secureConnection = (conf.secureConnection) ? conf.secureConnection : true;
+        this._port = (conf.port === undefined) ? this._port : conf.port;
     },
 
     executeGet: function(req, res){
@@ -84,10 +86,10 @@ module.exports = {
         }
     },
 
-    createServer: function(port){
+    createServer: function(clb){
         var that = this;
 
-        this.server = http.createServer(function(req, res){
+        http.createServer(function(req, res){
 
             // check for url for API version and API function requested.
             that.urlCheck(req);
@@ -104,9 +106,7 @@ module.exports = {
                     that.executeGet(req, res);
                     break;
             }
-        });
-
-        this.server.listen(port, function(){
+        }).server.listen(port, function(){
             console.log("Server listning at " + port);
         });
     }
